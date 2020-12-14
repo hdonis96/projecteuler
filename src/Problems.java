@@ -7,6 +7,7 @@ public class Problems {
 		//problem3(p3);
 		System.out.println("");
 		problem6(100);
+		problem7(10001);
 	}
 	public static void main(String[] args) {
 		Problems p = new Problems();
@@ -123,5 +124,21 @@ public class Problems {
 		 }
 		 squareSum = squareSum * squareSum;
 		 System.out.println(squareSum - sumSquares);
+	 }
+	 /*PROBLEM 7---------------------------
+		 * 10001st prime */
+	 public void problem7(int place) {
+		 int currentPlace = 0;
+		 int num = 1;
+		 while(true) {
+			 if(isPrime(num)) {
+				 if(currentPlace == place) {
+					 System.out.println("place " + place + " is prime number " + num);
+					 return;
+				 }
+				 currentPlace++;
+			 }
+ 			 num++;
+		 }
 	 }
 } 
