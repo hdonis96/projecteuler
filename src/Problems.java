@@ -5,7 +5,7 @@ public class Problems {
 		problem2(1, 2);
 		long p3 = 10086647l; // 10086647 * 839 = 8462696833, 8462696833 * 71 = 600851475143
 		//problem3(p3);
-		problem4();
+		System.out.println(", " + problem5());
 	}
 	public static void main(String[] args) {
 		Problems p = new Problems();
@@ -93,5 +93,22 @@ public class Problems {
 		 }
 		 return true;
 	 }
-	
+	/*PROBLEM 5---------------------------
+	 * smallest multiple */
+	 public int problem5() {
+		 int num = 20;
+		 //2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder
+		 while(true) {
+			 int count = 0;
+			 for(int i = 1; i < 21; i++) {
+				 if(num % i == 0) {
+					 count++;
+				 }
+			 }
+			 if(count == 20) {
+				 return num;
+			 }
+			 num++;
+		 }
+	 }
 } 
