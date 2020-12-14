@@ -5,7 +5,8 @@ public class Problems {
 		problem2(1, 2);
 		long p3 = 10086647l; // 10086647 * 839 = 8462696833, 8462696833 * 71 = 600851475143
 		//problem3(p3);
-		System.out.println(", " + problem5());
+		System.out.println("");
+		problem6(100);
 	}
 	public static void main(String[] args) {
 		Problems p = new Problems();
@@ -110,5 +111,17 @@ public class Problems {
 			 }
 			 num++;
 		 }
+	 }
+	 /*PROBLEM 6---------------------------
+		 * Sum Square Difference */
+	 public void problem6(int max) {
+		 int sumSquares = 0;
+		 int squareSum = 0;
+		 for(int i = 1; i <= max; i++) {
+			 sumSquares += i*i;
+			 squareSum += i;
+		 }
+		 squareSum = squareSum * squareSum;
+		 System.out.println(squareSum - sumSquares);
 	 }
 } 
