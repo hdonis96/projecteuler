@@ -4,7 +4,7 @@ public class Problems {
 	Problems() {
 		problem2(1, 2);
 		long p3 = 10086647l; // 10086647 * 839 = 8462696833, 8462696833 * 71 = 600851475143
-		problem3(p3);
+		//problem3(p3);
 		problem4();
 	}
 	public static void main(String[] args) {
@@ -71,16 +71,27 @@ public class Problems {
 	 * Find the largest palindrome made from the product of two 3-digit numbers. */
 	 public void problem4() {
 		 int ans = 0;
-		 for(int i = 10; i < 100; i++) {
-			 for(int j = 10; j < 100; j++) {
+		 for(int i = 100; i < 1000; i++) {
+			 for(int j = 100; j < 1000; j++) {
 				 int temp = i * j;
-				 
+				 if(isPalindrome(temp)) {
+					 if (temp > ans) {
+						 ans = temp;
+						 System.out.println(ans);
+					 }
+				 }
 			 }
 		 }
+		 System.out.println("final answer= " + ans);
 	 }
 	 public boolean isPalindrome(int num) {
-		 
-		 return false;
+		 String numStr = num + "";
+		 for (int i = 0; i < numStr.length() / 2; i++) {
+			 char a = numStr.charAt(i);
+			 char b = numStr.charAt(numStr.length() - 1 - i);
+			 if(a != b) return false; 
+		 }
+		 return true;
 	 }
 	
 } 
