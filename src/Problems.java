@@ -1,3 +1,4 @@
+import java.lang.Math; 
 
 public class Problems {
 	int sum1 = 0;
@@ -8,7 +9,8 @@ public class Problems {
 		System.out.println("");
 		//problem6(100);
 		//problem7(10001);
-		problem8(13);
+		//problem8(13);
+		problem9(1000);
 	}
 	public static void main(String[] args) {
 		Problems p = new Problems();
@@ -182,5 +184,24 @@ public class Problems {
 		 }
 		 System.out.println("product is " + product);
 		 System.out.println("product string is " + n);
+	 }
+	 /*PROBLEM 9---------------------------
+		 * Special Pythagorean triplet */
+	 public void problem9(int max) {
+		 for(int a = 1; a < 500; a++) {
+			 for(int b = a + 1; b < 500; b++) {
+				 int cSquare = a*a + b*b;
+				 double c = Math.sqrt(cSquare);
+				 if(c % 1 == 0) {
+					// System.out.println(a + ", " + b + ", " + c);
+					 if(a + b + c == 1000) {
+						 System.out.println("bingo!");
+						 System.out.println(a + ", " + b + ", " + c);
+						 System.out.println(a*b*c);
+					 }
+				 }
+				 
+			 }
+		 }
 	 }
 } 
