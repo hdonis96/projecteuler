@@ -11,7 +11,8 @@ public class Problems {
 		//problem7(10001);
 		//problem8(13);
 		//problem9(1000);
-		problem11();
+		  problem10(2000000);
+		//problem11();
 	}
 	public static void main(String[] args) {
 		Problems p = new Problems();
@@ -64,6 +65,9 @@ public class Problems {
 	}
 	public boolean isPrime(int n) {
 		for(int i = 2; i < n; i++) {
+			if(n / i < 2) {
+				break;
+			}
 			if(n % i == 0) {
 				return false;
 			}
@@ -207,14 +211,50 @@ public class Problems {
 	 }
 	 /*PROBLEM 10---------------------------
 		 * Summation of primes */
-	 public void problem10() {
+	 public void problem10(int max) {
+		 long sum = 0;
+		 boolean[] isPrime = new boolean[max];
+		 int index = 0;
+		 for(boolean b : isPrime) {
+			 isPrime[index] = true;
+			 index++;
+		 }
+		 isPrime[1] = false;
+		 isPrime[4] = false;
+	
+		 for(int i = 2; i < max; i++) {
+			 if(isPrime[i]) {
+				 eliminate(isPrime, max, i);
+			 }
+		 }
+		 
+		 index = 0;
+		 for(boolean b : isPrime) {
+			 if(b) {
+				 sum+= index;
+			 }
+			 index++;
+		 }
+		 System.out.println("newSum: " + sum);
+		 //problem10Test(max);
+	 }
+	 
+	 public boolean[] eliminate(boolean[] arr, int max, int num) {
+		 for(int i = num*2; i < max; i+=num) {
+			 arr[i] = false;
+		 }
+		 return arr;
+	 }
+	 
+	 
+	 public void problem10Test(int max) {
 		 int sum = 0;
-		 for(int i = 2; i < 2000000; i++) {
+		 for(int i = 2; i < max; i++) {
 			 if(isPrime(i)) {
 				 sum += i;
 			 }
 		 }
-		 System.out.println(sum);
+		 System.out.println("testSum: " + sum);
 	 }
 	 /*PROBLEM 11---------------------------
 		 * Largest product in a grid */
